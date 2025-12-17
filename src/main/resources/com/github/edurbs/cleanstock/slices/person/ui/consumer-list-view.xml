@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      title="msg://consumerListView.title"
+      focusComponent="consumersDataGrid">
+    <data>
+        <collection id="consumersDc"
+                    class="com.github.edurbs.cleanstock.slices.person.Consumer">
+            <fetchPlan extends="_base"/>
+            <loader id="consumersDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from Consumer e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <genericFilter component="genericFilter"/>
+            <pagination component="pagination"/>
+        </urlQueryParameters>
+    </facets>
+    <actions>
+        <action id="selectAction" type="lookup_select"/>
+        <action id="discardAction" type="lookup_discard"/>
+    </actions>
+    <layout>
+        <genericFilter id="genericFilter"
+                       dataLoader="consumersDl">
+            <properties include=".*"/>
+        </genericFilter>
+        <hbox id="buttonsPanel" classNames="buttons-panel">
+            <startSlot>
+                <button id="createButton" action="consumersDataGrid.createAction"/>
+                <button id="editButton" action="consumersDataGrid.editAction"/>
+                <button id="removeButton" action="consumersDataGrid.removeAction"/>
+            </startSlot>
+            <endSlot>
+                <simplePagination id="pagination" dataLoader="consumersDl"/>
+            </endSlot>
+        </hbox>
+        <dataGrid id="consumersDataGrid"
+                  width="100%"
+                  minHeight="20em"
+                  dataContainer="consumersDc"
+                  columnReorderingAllowed="true">
+            <actions>
+                <action id="createAction" type="list_create"/>
+                <action id="editAction" type="list_edit"/>
+                <action id="removeAction" type="list_remove"/>
+            </actions>
+            <columns resizable="true">
+                <column property="personType"/>
+                <column property="taxId"/>
+                <column property="name"/>
+                <column property="email"/>
+                <column property="nickName"/>
+                <column property="birthDate"/>
+                <column property="phone"/>
+                <column property="creditLimit"/>
+            </columns>
+        </dataGrid>
+        <hbox id="lookupActions" visible="false">
+            <button id="selectButton" action="selectAction"/>
+            <button id="discardButton" action="discardAction"/>
+        </hbox>
+    </layout>
+</view>

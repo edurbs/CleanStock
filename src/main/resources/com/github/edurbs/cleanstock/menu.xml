@@ -2,7 +2,10 @@
 <menu-config xmlns="http://jmix.io/schema/flowui/menu">
 
     <menu id="application" title="msg://com.github.edurbs.cleanstock/menu.application.title" opened="true">
-        <item view="User.list" title="msg://com.github.edurbs.cleanstock.view.user/UserListView.title"/>
+        <item view="User.list" title="msg://com.github.edurbs.cleanstock.slices.user.ui/UserListView.title"/>
+        <item view="Consumer.list" title="msg://com.github.edurbs.cleanstock.slices.person.ui/consumerListView.title"/>
+        <item view="Supplier.list" title="msg://com.github.edurbs.cleanstock.slices.person.ui/supplierListView.title"/>
+        <item view="Product.list" title="msg://com.github.edurbs.cleanstock.slices.product.ui/productListView.title"/>
     </menu>
 
 </menu-config>

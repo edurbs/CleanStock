@@ -1,6 +1,6 @@
 package com.github.edurbs.cleanstock.user;
 
-import com.github.edurbs.cleanstock.entity.User;
+import com.github.edurbs.cleanstock.slices.user.User;
 import com.github.edurbs.cleanstock.test_support.AuthenticatedAsAdmin;
 import io.jmix.core.DataManager;
 import io.jmix.core.security.UserRepository;

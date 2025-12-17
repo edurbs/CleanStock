@@ -19,9 +19,14 @@ repositories {
     maven {
         url = 'https://global.repo.jmix.io/repository/public'
     }
+    maven {
+        url = 'https://maven.vaadin.com/vaadin-addons'
+    }
 }
 
 dependencies {
+    implementation 'io.jmix.translations:jmix-translations-pt-br'
+
     implementation 'io.jmix.core:jmix-core-starter'
     implementation 'io.jmix.data:jmix-eclipselink-starter'
     implementation 'io.jmix.security:jmix-security-starter'
@@ -38,17 +43,20 @@ dependencies {
 
     // lombok
     compileOnly("org.projectlombok:lombok:1.18.42")
-	annotationProcessor("org.projectlombok:lombok:1.18.42")
+    annotationProcessor("org.projectlombok:lombok:1.18.42")
 
-	testCompileOnly("org.projectlombok:lombok:1.18.42")
-	testAnnotationProcessor("org.projectlombok:lombok:1.18.42")
+    testCompileOnly("org.projectlombok:lombok:1.18.42")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.42")
 
-    runtimeOnly 'org.hsqldb:hsqldb'
+    // input mask
+    implementation 'org.vaadin.addons.componentfactory:vcf-input-mask:2.2.0'
+
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testImplementation 'io.jmix.flowui:jmix-flowui-test-assist'
+    implementation 'org.hsqldb:hsqldb'
 }
 
 configurations.implementation {
