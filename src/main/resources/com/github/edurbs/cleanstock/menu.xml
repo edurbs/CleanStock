@@ -6,6 +6,8 @@
         <item view="Consumer.list" title="msg://com.github.edurbs.cleanstock.slices.person.ui/consumerListView.title"/>
         <item view="Supplier.list" title="msg://com.github.edurbs.cleanstock.slices.person.ui/supplierListView.title"/>
         <item view="Product.list" title="msg://com.github.edurbs.cleanstock.slices.product.ui/productListView.title"/>
+        <item view="ProductTransaction.list"
+              title="msg://com.github.edurbs.cleanstock.view.producttransaction/productTransactionListView.title"/>
     </menu>
 
 </menu-config>
