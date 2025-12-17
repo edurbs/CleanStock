@@ -8,6 +8,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -27,8 +28,10 @@ public class Product {
     @Id
     private UUID id;
 
+    @NotNull
+    @NotBlank
     @InstanceName
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", nullable = false)
     private String description;
 
     @NumberFormat(pattern = "#,##0.000", decimalSeparator = ",", groupingSeparator = ".")
